@@ -91,7 +91,8 @@ Clone this repository to your desired folder:
 
 ```sh
   cd my-folder
-  git clone 
+  git clone https://github.com/GhausAliKhan/Blog-app.git
+  cd Blog-app
 ```
 
 ### Usage
@@ -138,7 +139,7 @@ To run tests, run the following command:
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page]().
+Feel free to check the [issues page](https://github.com/GhausAliKhan/Blog-app/issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
