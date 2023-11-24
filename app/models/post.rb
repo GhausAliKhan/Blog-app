@@ -12,6 +12,10 @@ class Post < ApplicationRecord
   # Callback to update the posts counter for a user
   after_create :increment_user_posts_counter
 
+  # Validations
+  validates :title, presence: true, length: { maximum: 250 }
+  validates :comments_counter, :likes_counter, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+
   # A method which returns the 5 most recent comments for a given post
   def recent_comments
     comments.order(created_at: :desc).limit(5)
