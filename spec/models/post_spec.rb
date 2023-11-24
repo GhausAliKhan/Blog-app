@@ -31,7 +31,8 @@ RSpec.describe Post, type: :model do
     describe '#recent_comments' do
       before(:each) do
         @user = User.create!(name: 'Jane Doe', posts_counter: 0)
-        @post = @user.posts.create!(title: 'Sample Post', text: 'This is a sample post', comments_counter: 0, likes_counter: 0)
+        @post = @user.posts.create!(title: 'Sample Post', text: 'This is a sample post', comments_counter: 0,
+                                    likes_counter: 0)
         6.times do |i|
           comment = @post.comments.create!(user: @user, text: "Comment #{i}", created_at: Time.now + i.seconds)
           puts "Failed to save comment: #{comment.errors.full_messages.join(', ')}" if comment.new_record?
