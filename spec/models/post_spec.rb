@@ -26,4 +26,28 @@ RSpec.describe Post, type: :model do
       expect(post.errors[:likes_counter]).to include('must be greater than or equal to 0')
     end
   end
+
+  describe 'methods' do
+    describe '#recent_comments' do
+      before(:each) do
+        @user = User.create!(name: 'Jane Doe', posts_counter: 0)
+        @post = @user.posts.create!(title: 'Sample Post', text: 'This is a sample post', comments_counter: 0, likes_counter: 0)
+        6.times do |i|
+          comment = @post.comments.create!(user: @user, text: "Comment #{i}", created_at: Time.now + i.seconds)
+          puts "Failed to save comment: #{comment.errors.full_messages.join(', ')}" if comment.new_record?
+        end
+      end
+
+      it 'checks if all comments are saved' do
+        expect(@post.comments.count).to eq(6)
+      end
+
+      it 'returns the 5 most recent comments' do
+        recent_comments = @post.recent_comments
+        expect(recent_comments.count).to eq(5)
+        expected_comments = @post.comments.order(created_at: :desc).limit(5)
+        expect(recent_comments).to match_array(expected_comments)
+      end
+    end
+  end
 end
