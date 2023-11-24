@@ -50,5 +50,14 @@ RSpec.describe Post, type: :model do
         expect(recent_comments).to match_array(expected_comments)
       end
     end
+    describe '#increment_user_posts_counter' do
+      it 'increments the posts counter for the author' do
+        user = User.create!(name: 'John Doe', posts_counter: 0)
+        post = user.posts.create!(title: 'Test Post', text: 'This is a test post', comments_counter: 0,
+                                  likes_counter: 0)
+
+        expect { post.send(:increment_user_posts_counter) }.to change { user.reload.posts_counter }.by(1)
+      end
+    end
   end
 end
