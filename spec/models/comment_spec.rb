@@ -13,5 +13,10 @@ RSpec.describe Comment, type: :model do
                                                                                   @post.reload.comments_counter
                                                                                 }.by(1)
     end
+
+    it 'decrements the post comments_counter after destroying a comment' do
+      comment = @post.comments.create!(user: @user, text: 'Sample Comment')
+      expect { comment.destroy }.to change { @post.reload.comments_counter }.by(-1)
+    end
   end
 end
