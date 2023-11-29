@@ -4,7 +4,7 @@ RSpec.describe Comment, type: :model do
   describe 'callbacks' do
     before(:each) do
       @user = User.create!(name: 'Jane Doe', posts_counter: 0)
-      @post = @user.posts.create!(title: 'Sample Post', text: 'This is a sample post', comments_counter: 0,
+      @post = @user.posts.create!(title: 'Sample Post', body: 'This is a sample post', comments_counter: 0,
                                   likes_counter: 0)
     end
 

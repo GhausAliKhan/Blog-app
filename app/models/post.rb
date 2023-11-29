@@ -5,7 +5,7 @@ class Post < ApplicationRecord
 
   # Attributes
   attribute :title, :string
-  attribute :text, :text
+  attribute :body, :text
   attribute :comments_counter, :integer, default: 0
   attribute :likes_counter, :integer, default: 0
 

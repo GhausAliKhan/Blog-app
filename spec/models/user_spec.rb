@@ -20,7 +20,7 @@ RSpec.describe User, type: :model do
       before(:each) do
         @user = User.create(name: 'John Doe', posts_counter: 0)
         4.times do |i|
-          @user.posts.create(title: "Post #{i}", text: "This is post No: #{i}", comments_counter: 0, likes_counter: 0)
+          @user.posts.create(title: "Post #{i}", body: "This is post No: #{i}", comments_counter: 0, likes_counter: 0)
         end
       end
 
