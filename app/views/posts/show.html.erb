@@ -1,4 +1,4 @@
 <h1>Post <%= @post.id %></h1>
 <h2>Title: <%= @post.title %></h2>
-<p>Post content here...</p>
+<p><%= @post.body %></p>
 <%= link_to "Back to Posts", user_posts_path(@user) %>
