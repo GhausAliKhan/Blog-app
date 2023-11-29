@@ -1,9 +1,19 @@
-<h1>Users</h1>
-<ul>
+<div class="users-list">
   <% @users.each do |user| %>
-    <li>
-      id: <%= user.id %>, name: <%= link_to user.name, user_path(user) %>
-      | <%= link_to "View Posts", user_posts_path(user) %>
-    </li>
+    <div class="user-entry">
+      <div class="user-image">
+        <% if user.name == 'Lilly' %>
+          <%= image_tag "default-profile-girl.jpg", alt: "Profile image" %>
+        <% elsif user.name == 'Tom' %>
+          <%= image_tag "default-profile-guy.jpg", alt: "Profile image" %>
+        <% else %>
+          <%= image_tag "default-no-image.", alt: "Profile image" %>
+        <% end %>
+      </div>
+      <div class="user-info">
+        <%= link_to user.name, user_path(user), class: "user-name" %> 
+        <span class="post-count">Number of posts: <%= user.posts.count %></span>
+      </div>
+    </div>
   <% end %>
-</ul>
+</div>

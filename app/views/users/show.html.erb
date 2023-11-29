@@ -1,3 +1,38 @@
-<h1><%= @user.name %></h1>
-<p>User details here...</p>
-<%= link_to "View Posts", user_posts_path(@user) %>
+<div id="user-show-page">
+  <div class="user-profile-header">
+    <!-- Profile Image Section -->
+    <div class="profile-image-section">
+      <% if @user.name == 'Lilly' %>
+        <%= image_tag "default-profile-girl.jpg", alt: "Profile image", class: "profile-image" %>
+      <% elsif @user.name == 'Tom' %>
+        <%= image_tag "default-profile-guy.jpg", alt: "Profile image", class: "profile-image" %>
+      <% else %>
+        <%= image_tag "default-no-image.png", alt: "Profile image", class: "profile-image" %>
+      <% end %>
+    </div>
+    <!-- Name and Number of Posts Section -->
+    <div class="user-details">
+      <h1 class="user_name"><%= @user.name %></h1>
+      <span class="post_count">Number of posts: <%= @user.posts.count %></span>
+    </div>
+  </div>
+  <!-- Bio Section -->
+  <div class="user-bio-section">
+    <p class="user-bio"><%= @user.bio %></p>
+  </div>
+    <!-- Posts Section -->
+    <div class="user-posts">
+    <% @user.posts.limit(3).each do |post| %>
+        <div class="post-preview">
+        <h2>Post <%= post.id %></h2>
+        <div class="post-info">
+          <p><%= post.title %></p>
+          <p><%= truncate(post.body, length: 150) %></p>
+          </div>
+          <span>Comments: <%= post.comments.count %>, Likes: <%= post.likes.count %></span>
+        </div>
+      <% end %>      
+      <%= link_to "See all posts", user_posts_path(@user), class: "see-all-posts" %>
+    </div>
+  </div>
+  </div>
