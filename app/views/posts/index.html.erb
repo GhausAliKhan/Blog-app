@@ -1,8 +1,41 @@
-<h1><%= @user.name %>'s Posts</h1>
-<ul>
-  <% @posts.each do |post| %>
-    <li>
-      Post ID: <%= post.id %>, Title: <%= link_to post.title, user_post_path(@user, post) %>
-    </li>
+<div class="user-profile--header">
+  <div class="profile-image--section">
+    <% if @user.name == 'Lilly' %>
+      <%= image_tag "default-profile-girl.jpg", alt: "Profile image", class: "profile-image" %>
+    <% elsif @user.name == 'Tom' %>
+      <%= image_tag "default-profile-guy.jpg", alt: "Profile image", class: "profile-image" %>
+    <% else %>
+      <%= image_tag "default-no-image.png", alt: "Profile image", class: "profile-image" %>
+    <% end %>
+  </div>
+  <div class="user--details">
+    <h1 class="user__name"><%= @user.name %></h1>
+    <span class="post__count">Number of posts: <%= @posts.size %></span>
+  </div>
+</div>
+
+<div class="posts--container">
+  <% @posts.each_with_index do |post, index| %>
+    <div class="post--entry">
+      <h2><%= link_to "Post ##{index + 1}", user_post_path(@user, post) %></h2>
+      <p class="post--title"><%= link_to post.title, user_post_path(@user, post) %></p>
+      <p class="post--excerpt"><%= truncate(post.body, length: 100) %></p>
+      <div class="post--details">
+        <span>Comments: <%= post.comments.size %>, Likes: <%= post.likes.size %></span>
+      </div>
+      <div class="comments--preview">
+        <% post.comments.last(5).each do |comment| %>
+          <div class="comment">
+            <span class="username"><%= comment.user.name %>:</span>
+            <span class="comment--text"><%= truncate(comment.text, length: 50) %></span>
+          </div>
+        <% end %>
+      </div>
+    </div>
   <% end %>
-</ul>
+</div>
+
+<% if @user && @posts.any? %>
+<%= link_to 'Last Post', user_post_path(@user, @posts.last), class: "pagination" %>
+<% end %>
+  
