@@ -1,15 +1,380 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+  Users List Styles (http://localhost:3000/users)
+  Styling for the list of users, including layout and alignment.
+*/
+
+.users-list {
+  padding: 2rem;
+  margin: auto;
+  max-width: 700px;
+}
+
+.user-entry {
+  display: flex;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+
+.user-image {
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+  background-color: #efefef;
+  border: 1px solid #000;
+  margin-right: 1rem;
+  border-radius: 10%;
+}
+
+.user-image img {
+  width: 100%;
+  height: auto;
+}
+
+/*
+  User Info Styles (http://localhost:3000/users)
+  Styling for the user information display next to the user image.
+*/
+
+.user-info {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px solid #000;
+  border-radius: 10px;
+  padding: 0.5rem 1rem;
+  height: 5rem;
+}
+
+.user-name {
+  text-decoration: none;
+  color: black;
+  font-size: 2em;
+}
+
+.post-count {
+  font-size: 1em;
+  color: #525252;
+  text-align: right;
+}
+
+/*
+  User Profile Header (http://localhost:3000/users/1)
+  The header section of the user profile page, including the image and details.
+*/
+
+.user-profile-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+/*
+  Profile Image Section (http://localhost:3000/users/1)
+  Styles for the profile image within the user profile header.
+*/
+
+.profile-image-section {
+  flex: 0 0 auto;
+  margin-right: 1rem;
+}
+
+.profile-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 10%;
+  border: 2px solid #000;
+}
+
+/*
+  User Details Section (http://localhost:3000/users/5)
+  Styling for the user details section including name and post count.
+*/
+
+.user-details {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid #000;
+  border-radius: 10px;
+  padding: 1.5rem 2rem;
+  height: 6.2rem;
+}
+
+.user_name {
+  font-size: 3em;
+  margin-top: 0.5rem;
+}
+
+.post_count {
+  font-size: 1.5em;
+  color: #777;
+  text-align: right;
+  margin-top: -1rem;
+}
+
+/*
+  User Bio Section (http://localhost:3000/users/5)
+  Styles for the bio section of the user profile.
+*/
+
+.user-bio-section {
+  border: 2px solid #000;
+  border-radius: 10px;
+  margin: 0.5rem 2rem;
+  padding: 1.5rem 2rem;
+  width: auto;
+}
+
+.user-bio {
+  font-size: 1.5em;
+  color: #555;
+}
+
+/*
+  Posts Section (http://localhost:3000/users/5)
+  Styles for the user posts previews shown on the user profile page.
+*/
+
+.user-posts {
+  width: auto;
+  margin: 0.5rem 2rem;
+  padding: 1rem 0;
+}
+
+.post-preview {
+  border: 2px solid #000;
+  border-radius: 10px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.post-info {
+  font-size: large;
+}
+
+.post-preview span {
+  margin-left: auto;
+  padding-top: 0.5rem;
+  font-size: 1em;
+  color: #777;
+}
+
+/*
+  See All Posts Button (http://localhost:3000/users/5)
+  Styles for the 'See all posts' button at the bottom of the posts section.
+*/
+
+.see-all-posts {
+  display: block;
+  width: 22%;
+  text-align: center;
+  background-color: #d8d8d8;
+  color: #000;
+  padding: 1rem;
+  border-radius: 10px;
+  text-decoration: none;
+  border: 1px solid #000;
+  margin: 1rem auto;
+  font-size: 1.4em;
+}
+
+/*
+  See All Posts Page (http://localhost:3000/users/5/posts)
+  Styles for the 'See all posts' page.
+*/
+
+/* User Profile Header */
+.user-profile--header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  padding: 2rem;
+}
+
+/* Profile Image Section */
+.profile-image--section {
+  flex: 0 0 auto;
+  margin-right: 1rem;
+}
+
+.profile--image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 2px solid #000;
+}
+
+/* User Details Section */
+.user--details {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid #000;
+  border-radius: 10px;
+  padding: 1.5rem 2rem;
+  height: 6.2rem;
+}
+
+.user__name {
+  font-size: 3em;
+  margin-top: 0.5rem;
+}
+
+.post__count {
+  font-size: 1.5em;
+  color: #777;
+  text-align: right;
+  margin-top: -1rem;
+}
+
+/*
+  (http://localhost:3000/users/5/posts)
+*/
+
+.posts--container {
+  margin-bottom: 1rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.post--entry {
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border: 2px solid #000;
+  border-radius: 10px;
+}
+
+.post--entry h2 {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.post--entry a {
+  text-decoration: none;
+  color: black;
+}
+
+.post--entry a:hover {
+  text-decoration: underline;
+  color: black;
+}
+
+.post--excerpt {
+  font-size: 3em;
+  margin-bottom: 5px;
+}
+
+.post--details {
+  font-size: 1em;
+  color: #666;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-align: right;
+}
+
+.comments--preview {
+  background-color: #f9f9f9;
+  padding: 5px;
+  border-top: 1px solid #ddd;
+}
+
+.comment {
+  display: flex;
+  padding: 0.5rem;
+}
+
+.username {
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.comment--text {
+  font-size: 1em;
+  padding-left: 1em;
+}
+
+.pagination {
+  display: block;
+  width: 22%;
+  text-align: center;
+  text-decoration: none;
+  background-color: #e7e7e7;
+  color: #000;
+  padding: 1rem;
+  border-radius: 10px;
+  border: 1px solid #000;
+  margin: 1rem auto;
+  font-size: 1.4em;
+}
+
+/*
+  See Single Posts Page (http://localhost:3000/users/5/posts/X)
+  Styles for the 'Single posts' page.
+*/
+
+/* Single Post Container */
+.single-post-container {
+  margin: auto;
+  padding: 1rem 2rem;
+}
+
+/* Post Header */
+.post--header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+  padding: 1rem;
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+  border: 2px solid #000;
+}
+
+.post--stats {
+  flex: 1;
+  text-align: right;
+}
+
+/* Post Body */
+.post--body {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  color: #000;
+}
+
+/* Post Comments */
+.post--comments {
+  margin: 1rem 2rem 0 2rem;
+  padding-top: 1rem;
+  border: 2px solid #000;
+}
+
+.comment00 {
+  padding: 1rem;
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.5rem;
+  border-top: #ddd 1px solid;
+}
+
+/* Back to Posts Link */
+.back-to-posts {
+  display: block;
+  width: 20%;
+  text-align: center;
+  background-color: #e7e7e7;
+  color: #000;
+  padding: 1rem;
+  border-radius: 10px;
+  text-decoration: none;
+  border: 1px solid #000;
+  margin: 1rem auto;
+  font-size: 1.4em;
+}
