@@ -17,4 +17,18 @@ class CommentsController < ApplicationController
       render :new
     end
   end
+
+  private
+
+  def find_user
+    @user = current_user
+  end
+
+  def find_post
+    @post = Post.find(params[:post_id])
+  end
+
+  def comment_params
+    params.require(:comment).permit(:text)
+  end
 end
