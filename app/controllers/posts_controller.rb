@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
-  before_action :find_user, only: %i[show new create like]
-  before_action :find_post, only: %i[show like]
+  before_action :find_user, only: %i[show new create]
+  before_action :find_post, only: %i[show]
 
   # GET /posts or /users/:user_id/posts
   def index
@@ -33,12 +33,6 @@ class PostsController < ApplicationController
     else
       render :new
     end
-  end
-
-  # POST /users/:user_id/posts/:id/like
-  def like
-    @post.increment!(:likes_counter)
-    redirect_to [@user, @post], notice: 'You liked a post!'
   end
 
   private
