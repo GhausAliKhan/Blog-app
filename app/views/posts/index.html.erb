@@ -1,6 +1,7 @@
-<div class="user-profile--header">
-  <div class="profile-image--section">
-    <% if @user.name == 'Lilly' %>
+<% if @user %>
+  <div class="user-profile--header">
+    <div class="profile-image--section">
+      <% if @user.name == 'Lilly' %>
       <%= image_tag "default-profile-girl.jpg", alt: "Profile image", class: "profile-image" %>
     <% elsif @user.name == 'Tom' %>
       <%= image_tag "default-profile-guy.jpg", alt: "Profile image", class: "profile-image" %>
@@ -11,14 +12,19 @@
   <div class="user--details">
     <h1 class="user__name"><%= @user.name %></h1>
     <span class="post__count">Number of posts: <%= @posts.size %></span>
+      <!-- Add link to new post form -->
+      <%= link_to 'Create New Post', new_user_post_path(@user), class: "btn btn-primary" %>
+    </div>
   </div>
-</div>
+<% else %>
+  <p>Showing all posts:</p>
+<% end %>
 
 <div class="posts--container">
   <% @posts.each_with_index do |post, index| %>
     <div class="post--entry">
-      <h2><%= link_to "Post ##{index + 1}", user_post_path(@user, post) %></h2>
-      <p class="post--title"><%= link_to post.title, user_post_path(@user, post) %></p>
+      <h2><%= link_to "Post ##{index + 1}", user_post_path(post.author, post) %></h2>
+      <p class="post--title"><%= link_to post.title, user_post_path(post.author, post) %></p>
       <p class="post--excerpt"><%= truncate(post.body, length: 100) %></p>
       <div class="post--details">
         <span>Comments: <%= post.comments.size %>, Likes: <%= post.likes.size %></span>
@@ -36,6 +42,5 @@
 </div>
 
 <% if @user && @posts.any? %>
-<%= link_to 'Last Post', user_post_path(@user, @posts.last), class: "pagination" %>
+  <%= link_to 'Last Post', user_post_path(@user, @posts.last), class: "pagination" %>
 <% end %>
-  
