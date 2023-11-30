@@ -9,7 +9,6 @@ class LikesController < ApplicationController
     @like = Like.new(user: @user, post: @post)
 
     if @like.save
-      @post.increment!(:likes_counter)
       redirect_to [@user, @post], notice: 'You liked a post!'
     else
       render :new

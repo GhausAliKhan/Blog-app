@@ -38,7 +38,7 @@ class PostsController < ApplicationController
   private
 
   def find_user
-    @user = User.find(params[:user_id])
+    @user = current_user
   rescue ActiveRecord::RecordNotFound
     flash[:alert] = 'User not found.'
     redirect_to root_path
