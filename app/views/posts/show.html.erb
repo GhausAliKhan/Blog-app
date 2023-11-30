@@ -1,19 +1,25 @@
 <div class="single-post-container">
   <div class="post--header">
-  <h1>Post <%= @post.id %> : <%= @post.title %> by <%= @user.name %></h1>
+    <h1>Post #<%= @post.id %> by <%= @user.name %></h1>
     <div class="post--body">
       <p><%= @post.body %></p>
     </div>
     <div class="post--stats">
-      <span>Comments: <%= @post.comments.count %>, Likes: <%= @post.likes.count %></span>
+      <span>Comments: <%= @post.comments.count %>, Likes: <%= @post.likes_counter %></span>
     </div>
+    <% if current_user %>
+      <div class="post-actions">
+        <%= button_to 'Like', user_post_likes_path(@user, @post), method: :post %>
+        <!-- Add a link to the new comment form -->
+        <%= link_to 'Add Comment', new_user_post_comment_path(@user, @post), class: 'btn btn-primary' %>
+      </div>
+    <% end %>
   </div>
-</div>
 
-
+  <!-- Comments Section -->
   <div class="post--comments">
     <% @post.comments.each do |comment| %>
-      <div class="comment00">
+      <div class="comment">
         <strong><%= comment.user.name %>:</strong>
         <p><%= comment.text %></p>
       </div>

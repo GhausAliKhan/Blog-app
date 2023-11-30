@@ -224,7 +224,7 @@
 
 .user__name {
   font-size: 3em;
-  margin-top: 0.5rem;
+  margin: 0;
 }
 
 .post__count {
@@ -288,6 +288,7 @@
 
 .comment {
   display: flex;
+  align-items: center;
   padding: 0.5rem;
 }
 
@@ -315,6 +316,20 @@
   font-size: 1.4em;
 }
 
+.btn-primary {
+  background-color: #04f;
+  color: #fff;
+  width: 11%;
+  padding: 5px;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.btn-secondary {
+  background-color: #7e7e7e;
+  color: #fff;
+}
+
 /*
   See Single Posts Page (http://localhost:3000/users/5/posts/X)
   Styles for the 'Single posts' page.
@@ -329,11 +344,9 @@
 /* Post Header */
 .post--header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid #ddd;
   padding: 1rem;
-  padding-bottom: 1rem;
   margin-bottom: 1rem;
   border: 2px solid #000;
 }
@@ -343,16 +356,31 @@
   text-align: right;
 }
 
+.like-button {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  border-radius: 10px;
+}
+
+.like-button form {
+  display: inline;
+}
+
+.like-button i {
+  cursor: pointer;
+  color: #000;
+  font-size: 1.5em;
+}
+
 /* Post Body */
 .post--body {
-  margin-top: 1.5rem;
   padding: 1rem;
   color: #000;
 }
 
 /* Post Comments */
 .post--comments {
-  margin: 1rem 2rem 0 2rem;
   padding-top: 1rem;
   border: 2px solid #000;
 }
@@ -377,4 +405,79 @@
   border: 1px solid #000;
   margin: 1rem auto;
   font-size: 1.4em;
+}
+
+/*
+Create New Post Form (http://localhost:3000/users/5/posts/X)
+Styles for the 'Create New Post' page.
+*/
+
+/* Style for the entire form container */
+.form-container {
+  width: calc(100% - 4rem);
+  margin: auto;
+  padding: 2rem;
+  background-color: #fff;
+}
+
+/* Style for form fields */
+.field {
+  margin-bottom: 1rem;
+}
+
+.field label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.field input[type="text"],
+.field textarea {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Style for form actions */
+.actions {
+  text-align: right;
+}
+
+.actions input[type="submit"] {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.actions input[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+/* Back button style */
+#back-btn {
+  background-color: #f8f9fa;
+  border: 1px solid #ddd;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  display: inline-block;
+  margin-bottom: 1rem;
+  border-radius: 4px;
+}
+
+#back-btn:hover {
+  background-color: #e2e6ea;
+}
+
+/* Error explanation styles */
+#error_explanation {
+  padding: 1rem;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  border-radius: 4px;
+  color: #721c24;
+  margin-bottom: 1rem;
 }
