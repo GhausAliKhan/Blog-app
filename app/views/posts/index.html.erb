@@ -12,8 +12,6 @@
   <div class="user--details">
     <h1 class="user__name"><%= @user.name %></h1>
     <span class="post__count">Number of posts: <%= @posts.size %></span>
-      <!-- Add link to new post form -->
-      <%= link_to 'Create New Post', new_user_post_path(@user), class: "btn btn-primary" %>
     </div>
   </div>
 <% else %>
@@ -42,5 +40,8 @@
 </div>
 
 <% if @user && @posts.any? %>
-  <%= link_to 'Last Post', user_post_path(@user, @posts.last), class: "pagination" %>
+  <div class="button-group">
+    <%= link_to 'Create New Post', new_user_post_path(@user), class: "btn btn-primary" %>
+    <%= link_to 'Go Back', user_path(@user), class: "btn btn-secondary" %>
+  </div>
 <% end %>
