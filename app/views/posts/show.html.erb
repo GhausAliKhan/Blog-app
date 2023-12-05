@@ -1,19 +1,17 @@
 <div class="single-post-container">
   <div class="post--header">
-    <h1>Post #<%= @post.id %> by <%= @user.name %></h1>
-    <div class="post--body">
-      <p><%= @post.body %></p>
-    </div>
+  <h1>Post #<%= @post.id %> : <%= @post.title %> by <%= @user.name %></h1>
+    <% if current_user %>
+      <div class="like-button">
+        <%= button_to user_post_likes_path(@user, @post), method: :post do %>
+          <i class="fas fa-thumbs-up"></i>
+        <% end %>
+      </div>
+    <% end %>
     <div class="post--stats">
       <span>Comments: <%= @post.comments.count %>, Likes: <%= @post.likes_counter %></span>
     </div>
-    <% if current_user %>
-      <div class="post-actions">
-        <%= button_to 'Like', user_post_likes_path(@user, @post), method: :post %>
-        <!-- Add a link to the new comment form -->
-        <%= link_to 'Add Comment', new_user_post_comment_path(@user, @post), class: 'btn btn-primary' %>
-      </div>
-    <% end %>
+    <p><%= @post.body %></p>
   </div>
 
   <!-- Comments Section -->
@@ -26,5 +24,8 @@
     <% end %>
   </div>
 
-  <%= link_to "Back to Posts", user_posts_path(@user), class: "back-to-posts" %>
+  <div class="button-group2">
+    <%= link_to 'Add Comment', new_user_post_comment_path(@user, @post), class: 'btn btn-primary2' %>
+    <%= link_to 'Back to Posts', user_posts_path(@user), class: "btn btn-secondary2" %>
+  </div>
 </div>

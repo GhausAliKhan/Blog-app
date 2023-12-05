@@ -56,6 +56,7 @@
   font-size: 1em;
   color: #525252;
   text-align: right;
+  margin-top: 0.5rem;
 }
 
 /*
@@ -288,7 +289,6 @@
 
 .comment {
   display: flex;
-  align-items: center;
   padding: 0.5rem;
 }
 
@@ -302,27 +302,26 @@
   padding-left: 1em;
 }
 
-.pagination {
-  display: block;
-  width: 22%;
-  text-align: center;
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.btn {
+  display: inline-block;
   text-decoration: none;
-  background-color: #e7e7e7;
-  color: #000;
   padding: 1rem;
   border-radius: 10px;
   border: 1px solid #000;
-  margin: 1rem auto;
   font-size: 1.4em;
+  text-align: center;
 }
 
 .btn-primary {
   background-color: #04f;
   color: #fff;
-  width: 11%;
-  padding: 5px;
-  text-decoration: none;
-  border-radius: 5px;
 }
 
 .btn-secondary {
@@ -343,17 +342,20 @@
 
 /* Post Header */
 .post--header {
-  display: flex;
-  align-items: center;
+  position: relative;
   border-bottom: 1px solid #ddd;
   padding: 1rem;
+  padding-bottom: 1rem;
   margin-bottom: 1rem;
   border: 2px solid #000;
+  border-radius: 10px;
 }
 
+/* Post Stats */
 .post--stats {
-  flex: 1;
   text-align: right;
+  margin-bottom: 0.5em;
+  border-bottom: 1px solid #ddd;
 }
 
 .like-button {
@@ -375,14 +377,18 @@
 
 /* Post Body */
 .post--body {
+  margin-top: 1.5rem;
   padding: 1rem;
   color: #000;
 }
 
 /* Post Comments */
 .post--comments {
+  margin-top: 1rem;
   padding-top: 1rem;
   border: 2px solid #000;
+  border-radius: 10px;
+  width: 99%;
 }
 
 .comment00 {
@@ -392,19 +398,21 @@
   border-top: #ddd 1px solid;
 }
 
-/* Back to Posts Link */
-.back-to-posts {
-  display: block;
-  width: 20%;
-  text-align: center;
-  background-color: #e7e7e7;
-  color: #000;
-  padding: 1rem;
-  border-radius: 10px;
-  text-decoration: none;
-  border: 1px solid #000;
-  margin: 1rem auto;
-  font-size: 1.4em;
+.button-group2 {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.btn-primary2 {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.btn-secondary2 {
+  background-color: #777;
+  color: #fff;
 }
 
 /*
