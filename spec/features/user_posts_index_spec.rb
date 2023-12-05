@@ -4,12 +4,12 @@ RSpec.feature 'User Post Index Page', type: :feature do
   before do
     @user = User.create!(name: 'Lilly', posts_counter: 0)
     @posts = []
-    10.times do |i|  # Updated to create more posts for pagination test
+    10.times do |i| # Updated to create more posts for pagination test
       @posts << Post.create!(title: "Post #{i}", body: "Body of post #{i}", author: @user)
     end
     @posts.each do |post|
-      Comment.create!(text: 'Great post!', user: @user, post: post)  # Fix for creating comments
-      Like.create!(user: @user, post: post)  # Fix for creating likes
+      Comment.create!(text: 'Great post!', user: @user, post:) # Fix for creating comments
+      Like.create!(user: @user, post:) # Fix for creating likes
     end
   end
 
