@@ -28,5 +28,5 @@ RSpec.feature 'User Posts Page', type: :feature do
   scenario "I can see a button that lets me view all of a user's posts" do
     visit user_path(@user)
     expect(page).to have_link('See all posts', href: user_posts_path(@user))
-  end
+  end
 end

@@ -18,6 +18,6 @@ RSpec.feature 'Post Show Page', type: :feature do
     @post.comments.each do |comment|
       expect(page).to have_content(comment.user.name)
       expect(page).to have_content(comment.text)
-    end
-  end
+    end
+  end
 end

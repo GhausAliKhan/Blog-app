@@ -20,5 +20,5 @@ RSpec.feature 'User Details Page', type: :feature do
     visit user_path(@user)
     click_link 'See all posts'
     expect(page).to have_current_path(user_posts_path(@user))
-  end
+  end
 end

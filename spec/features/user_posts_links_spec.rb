@@ -14,6 +14,6 @@ RSpec.feature 'User Post Index Page Links', type: :feature do
       find_link(post.title).click
       expect(page).to have_current_path(user_post_path(@user, post))
       visit user_posts_path(@user) if index < @user.posts.count - 1
-    end
-  end
+    end
+  end
 end
