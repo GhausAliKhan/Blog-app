@@ -1,0 +1,36 @@
+/* devise_custom.css */
+.login-container {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .field {
+    margin-bottom: 20px;
+  }
+
+  .actions {
+    margin-top: 20px;
+  }
+
+  input[type="email"],
+  input[type="password"],
+  input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    box-sizing: border-box; /* To ensure padding doesn't affect the width */
+  }
+  input[type="submit"] {
+    background-color: #5cb85c; /* Example color */
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+
+  input[type="submit"]:hover {
+    background-color: #4cae4c; /* Darker shade for hover effect */
+  }
