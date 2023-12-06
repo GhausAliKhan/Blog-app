@@ -2,10 +2,10 @@
 .login-container {
   display: flex;
   flex-direction: column;
-  max-width: 400px;
+  max-width: 500px;
   margin: auto;
-  padding: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 25px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 .field {
@@ -18,11 +18,16 @@
 
 input[type="email"],
 input[type="password"],
-input[type="submit"] {
+input[type="submit"],
+input[type="text"] {
   width: 100%;
   padding: 10px;
   margin-top: 5px;
   box-sizing: border-box; /* To ensure padding doesn't affect the width */
+  font-weight: bold;
+  outline: 0.5px solid #000;
+  border: 0;
+  border-radius: 0;
 }
 
 input[type="submit"] {
@@ -34,4 +39,13 @@ input[type="submit"] {
 
 input[type="submit"]:hover {
   background-color: #41a141; /* Darker shade for hover effect */
+}
+
+a {
+  text-decoration: none;
+  margin: 1px 0;
+}
+
+em{
+  font-size: 15px;
 }
