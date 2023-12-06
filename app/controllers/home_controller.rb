@@ -1,5 +1,8 @@
 class HomeController < ApplicationController
   def index
-    redirect_to new_user_session_path
+    @resource = User.new
+    @resource_name = :user
+    @resource_class = User
+    @devise_mapping = Devise.mappings[:user]
   end
 end

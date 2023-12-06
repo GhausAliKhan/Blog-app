@@ -39,8 +39,8 @@
   <% end %>
 </div>
 
-<% if @user && @posts.any? %>
-  <div class="button-group">
+<% if @user %>
+  <div class="button-group" style="display: flex; margin-top: 20px;">
     <%= link_to 'Create New Post', new_user_post_path(@user), class: "btn btn-primary" %>
     <%= link_to 'Go Back', user_path(@user), class: "btn btn-secondary" %>
   </div>
