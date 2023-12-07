@@ -1,0 +1,38 @@
+<div class="login-container">
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="field">
+  <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: "Fullname" %>
+  </div>
+
+  <div class="field">
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Your Email Address" %>
+  </div>
+
+  <div class="field">
+    <%= f.text_field :bio, autofocus: true, autocomplete: "bio", placeholder: "Bio", class: "custom-input", required: true %>
+  </div>
+
+  <div class="field">
+    <%= f.hidden_field :photo, value: "https://previews.123rf.com/images/afe207/afe2071811/afe207181100114/112623425-imagen-de-perfil-masculino-s%C3%ADmbolo-de-icono-de-avatar-de-perfil-de-silueta-con-gafas.jpg" %>
+  </div>
+
+  <div class="field">
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "new-password", placeholder: "Password" %>
+  </div>
+
+  <div class="field">
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Confirm Password" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Sign up" %>
+  </div>
+<% end %>
+</div>
+
+<%= render "devise/shared/links" %>
