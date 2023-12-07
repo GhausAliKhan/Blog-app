@@ -21,7 +21,7 @@
     <p class="user-bio"><%= @user.bio %></p>
   </div>
     <!-- Posts Section -->
-    <div class="user-posts">
+  <div class="user-posts">
     <% @user.posts.limit(3).each do |post| %>
         <div class="post-preview">
         <h2>Post <%= post.id %></h2>
@@ -31,8 +31,28 @@
           </div>
           <span>Comments: <%= post.comments.count %>, Likes: <%= post.likes.count %></span>
         </div>
+        <% if can? :destroy, post %>
+                    <%= form_with(url: user_post_path(@user, post), method: :delete, local: true) do |form| %>
+                    <%= form.submit 'Delete', class: 'btn btn-outline' %>
+                    <% end %>
+                <% end %>
       <% end %>      
       <%= link_to "See all posts", user_posts_path(@user), class: "see-all-posts" %>
     </div>
   </div>
-  </div>
+  <footer>
+    <ul class="nav-list">
+        <li>
+         <% if user_signed_in? %>
+            <%= form_with(url: destroy_user_session_path, method: :delete, local: false) do |form| %>
+                <button type="submit" class="btn btn-outline btn-error">
+                Logout
+                </button>
+        <% end %>
+        <% else %>
+            <%= link_to "Login", new_user_session_path, class: "btn btn-outline btn-primary" %>
+        <% end %>
+        </li>
+    </ul>
+</footer>
+</div>

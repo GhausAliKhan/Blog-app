@@ -21,6 +21,14 @@
         <strong><%= comment.user.name %>:</strong>
         <p><%= comment.text %></p>
       </div>
+      <% if can? :destroy, comment %>
+          <%= form_with(model: [ @user, @post, comment ],
+                        url: user_post_comment_path(@user, @post, comment),
+                        method: :delete,
+                        local: true) do |form| %>
+            <%= form.submit 'Delete', class: 'btn btn-outline' %>
+          <% end %>
+        <% end %>
     <% end %>
   </div>
 
@@ -29,3 +37,18 @@
     <%= link_to 'Back to Posts', user_posts_path(@user), class: "btn btn-secondary2" %>
   </div>
 </div>
+<% if @previous_post.present? %>
+    <div class="btn-post-container">
+      <button class="btn-pagination">
+        <%= link_to "Previous Post", user_post_path(@user, @previous_post) %>
+      </button>
+    </div>
+  <% end %>
+  <% if @next_post.present? %>
+    <div class="btn-post-container">
+      <button class="btn-pagination">
+        <%= link_to "Next Post", user_post_path(@user, @next_post) %>
+      </button>
+    </div>
+  <% end %>
+  
